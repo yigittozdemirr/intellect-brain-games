@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== CSS Custom Properties ===== */
+:root {
+  --pixel-dark: #1a1030;
+  --pixel-purple: #2d1b4e;
+  --pixel-magenta: #c13cff;
+  --pixel-cream: #fff3d6;
+  --pixel-orange: #ffa62b;
+  --pixel-yellow: #ffd23f;
+  --pixel-blue: #5b7cfa;
+  --pixel-pink: #ff5c8a;
+  --pixel-green: #4cd964;
+}
+
+/* ===== Global Reset & Pixel Styling ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pixelify Sans", cursive;
+  background-color: var(--pixel-dark);
+  color: var(--pixel-cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pixel art rendering */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pixel-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-purple);
+  border: 2px solid var(--pixel-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pixel-magenta);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--pixel-purple) var(--pixel-dark);
+}
+
+/* ===== Focus Styles ===== */
+:focus-visible {
+  outline: 2px solid var(--pixel-magenta);
+  outline-offset: 2px;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--pixel-magenta);
+  color: var(--pixel-cream);
+}
+
+/* ===== Remove default button/input styling ===== */
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Loading spinner pixel override ===== */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
